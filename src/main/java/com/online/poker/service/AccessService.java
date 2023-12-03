@@ -157,9 +157,44 @@ public class AccessService {
         if (index_hall != -1) {
             remove_user_from_gamestate(index_hall, "hall");
         }
+    }
 
+    public OutputUserInfo getOutputUserInfo(String name) {
+        OutputUserInfo output = new OutputUserInfo();
+        output.Player = find_by_name(name);
         
 
+
+        int index = check_ontable(name);
+        if (index != -1) {
+            output.Bet = gameState.PlayersBet.get(index);
+            
+            ArrayList<ArrayList<Card>> secret_cards = gameState.getPlayersCards();
+            output.Cards = secret_cards.get(index);
+
+            
+
+            if (gameState.StepId == index) {
+                output.StepTest = true;
+            }else {
+                output.StepTest = false;
+            }
+           
+
+        }else {
+            output.Bet = 0;
+            ArrayList<Card> cards = new ArrayList<Card>();
+            cards.add(new Card(0,'N'));
+            cards.add(new Card(0,'N'));
+            output.Cards = cards;
+
+            output.StepTest = false;
+        }
+
+
+        
+        
+        return output;
     }
 
 }

@@ -1,11 +1,9 @@
 package com.online.poker.repository;
-
+import java.util.ArrayList;
 
 public class OutputUserInfo {
-
     public User Player;
-    //chech, only bet, nothing
-    public String Status;
     public int Bet;
-   
+    public ArrayList<Card> Cards = new ArrayList<Card>();
+    public boolean StepTest;
 }

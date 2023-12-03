@@ -85,6 +85,8 @@ function showGreeting(message) {
                 "(bet:" +
                 message.PlayersBet[i] + ")" +
                 '(S)' +
+                '|' + message.OpenCards[i][0].Number + message.OpenCards[i][0].Suit + 
+                '~' + message.OpenCards[i][1].Number + message.OpenCards[i][1].Suit + '|' +
                 '</p></div">'
                 
                 // + '<div id = "grop"><p>dg' + message.Bank + '</p></div"></li>'
@@ -96,6 +98,8 @@ function showGreeting(message) {
                 message.PlayersOnTable[i].balance +
                 "(bet:" +
                 message.PlayersBet[i] + ")" +
+                '|' + message.OpenCards[i][0].Number + message.OpenCards[i][0].Suit + 
+                '~' + message.OpenCards[i][1].Number + message.OpenCards[i][1].Suit + '|' +
                 '</p></div">'
                 
                 // + '<div id = "grop"><p>dg' + message.Bank + '</p></div"></li>'
@@ -126,12 +130,17 @@ function showGreeting(message) {
 
 
 }
+
+
 function showUserInterface(message) {
     console.log(message);
     $("#userinterface").empty();
 
     $("#userinterface").append(
-        "<h3>" + message.name + message.balance +"</h3>"
+        "<h3>" + message.Player.name + message.Player.balance +"</h3>"
+    );
+    $("#userinterface").append(
+        "<h3>|" + message.Cards[0].Number + message.Cards[0].Suit + "~" + message.Cards[1].Number + message.Cards[1].Suit + "|</h3>"
     );
     $("#userinterface").append(
         '<input id = "bet" type="submit" value="bet"></form>'

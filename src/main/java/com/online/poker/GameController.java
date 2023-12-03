@@ -93,7 +93,7 @@ public class GameController {
                 accessService.set_user_in_gamestate(name,"hall");
             }
         }
-        // System.out.println("dfgdfg");
+        
         accessService.permit_to_step(name,playerInput);
         
         
@@ -102,15 +102,11 @@ public class GameController {
 
     @MessageMapping("/getinfo")
     @SendToUser("/queue/get_user_interface")
-    public User getUserInfo(Principal principal) {
+    public OutputUserInfo getUserInfo(Principal principal) {
         //Get player info
         String name = principal.getName();
         
-        // OutputUserInfo output = new OutputUserInfo();
-        // output.Player = accessService.find_by_name(name);
-
-        
-        return accessService.find_by_name(name);
+        return accessService.getOutputUserInfo(name);
     }
 
 }

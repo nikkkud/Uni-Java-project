@@ -1,7 +1,11 @@
 package com.online.poker.repository;
 import java.util.ArrayList;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class GameState {
 	
 
@@ -37,17 +41,18 @@ public class GameState {
 	public int DilerId;
 	public int CircleSize = 0;
 	public boolean GameOver = true;
+	// public User Winner = null;
 
 
 
     // сетери + гетери
-    public ArrayList<ArrayList<Card>> getPlayersCards(){
-        return PlayersCards;
-    }
+    // public ArrayList<ArrayList<Card>> getPlayersCards(){
+    //     return PlayersCards;
+    // }
 
-    public void setPlayersCards(ArrayList<ArrayList<Card>> PlayersCards){
-        this.PlayersCards = PlayersCards;
-    }
+    // public void setPlayersCards(ArrayList<ArrayList<Card>> PlayersCards){
+    //     this.PlayersCards = PlayersCards;
+    // }
 
     // public ArrayList<Card> getCardsOnTable(){
     //     return CardsOnTable;
