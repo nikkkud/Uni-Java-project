@@ -1,0 +1,444 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+#listsContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #e0e0e0;
+	box-sizing: border-box;
+	position: fixed;
+	/* position: fixed; */
+	top: 0;
+	width: 100%;
+	z-index: 3;
+	/* overflow-x: auto; */
+}
+
+#desk {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.desk_on_table {
+	padding-bottom: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+}
+
+.player_step {
+	border: 3px solid blue;
+}
+
+#ontable {
+	overflow-x: none;
+	min-width: 60%;
+
+	/* Минимальная ширина первого списка (относительно ширины страницы) */
+}
+
+#divider {
+	height: 50px;
+	/* Высота вашего разделителя */
+	width: 10px;
+	background-color: black;
+	position: fixed;
+	top: 0;
+	/* border-left: 1px solid #ccc; Цвет и стиль разделителя */
+}
+
+.liner {
+	width: 100%;
+	height: 16px;
+	background-color: #e0e0e0;
+	z-index: 4;
+	position: fixed;
+	top: 0px;
+}
+
+.clean_hall_table {
+	display: none;
+}
+
+#onhall,
+#ontable {
+	overflow-x: none;
+	min-width: 30%;
+	width: 100%;
+	background-color: #e0e0e0;
+	/* Минимальная ширина второго списка (относительно ширины страницы) */
+}
+
+#userinterface {
+	z-index: 3;
+	background-color: #f0f0f0;
+	width: 100%;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	position: fixed;
+	bottom: 0;
+	overflow-x: auto;
+	/* Полоса прокрутки по горизонтали при необходимости */
+
+	display: flex;
+	justify-content: center;
+}
+
+ul {
+	display: flex;
+	justify-content: center;
+}
+
+li {
+	position: center;
+	margin-right: 50px;
+	margin-left: 50px;
+	list-style-type: none;
+	font-size: 20px;
+	position: relative;
+}
+
+.check {
+	border: 2px solid green;
+}
+
+
+
+p {
+	margin: 2px;
+	left: 0;
+}
+
+h3 {
+	font-size: 20px;
+	margin: 0;
+}
+
+#move {
+	width: 5%;
+	height: 30px;
+	margin: 0px;
+	padding: 0px;
+}
+
+input,
+.button {
+	font-size: 20px;
+}
+
+#grop {
+	justify-content: center;
+	position: center;
+	display: flex;
+}
+
+#grop2 {
+	position: relative;
+	padding-bottom: 50px;
+}
+
+#grop2,
+.usercard_block,
+.player_card_block {
+	justify-content: center;
+	display: flex;
+}
+
+.usercard_block {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, 0);
+	bottom: 70px;
+}
+
+.card {
+	transition: all 3s ease;
+}
+
+
+#table {
+	width: 100%;
+	align-items: center;
+	text-align: center;
+	margin-top: 75px;
+}
+
+#bank {
+	margin: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 25px;
+	margin-bottom: 0px;
+	margin-top: 60px;
+	margin-bottom: 15px;
+	color: white;
+}
+
+#grop2 .card,
+.usercard_block .card {
+	margin: 10px;
+	background-color: rgb(248, 246, 147);
+	width: 110px;
+	padding: 55px 0;
+}
+
+#grop2 .card_image {
+	width: calc(84px + (128 - 84) * ((100vw - 1050px) / (1600 - 1050)));
+}
+
+.card_image {
+	margin: 30px;
+	padding: 0px;
+	width: 125px;
+}
+
+#grop2 .card_image {
+	margin: 15px;
+}
+
+.usercard_block .card_image {
+	display: flex;
+	justify-content: center;
+	margin: 0px;
+}
+
+.usercard_block .last_card {
+	z-index: 2;
+	margin-left: -60px;
+}
+
+form {
+	margin-left: 15px;
+
+}
+
+.button {
+	border-radius: 10px;
+	padding: 5px 20px;
+}
+
+.userdata,
+.playerdata {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+}
+
+.playerdata {
+	color: white;
+	font-size: 16px;
+}
+
+.userinterface_status {
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
+	background-color: #e0e0e0;
+	opacity: 0;
+	transition: all 1s ease;
+}
+
+
+.dealer_user {
+	background-color: rgb(0, 106, 255);
+	opacity: 1;
+}
+
+.big_user {
+	background-color: yellow;
+	color: black;
+	opacity: 1;
+}
+
+.small_user {
+	background-color: rgb(150, 2, 143);
+	opacity: 1;
+}
+
+.fold_user {
+	background-color: red;
+	opacity: 1;
+
+}
+
+.players_profile {
+	display: flex;
+	padding-left: 15px;
+	padding-right: 17.5px;
+	flex-direction: row;
+	width: 200px;
+	grid-gap: 5px;
+	background-color: black;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 10px;
+	position: relative;
+	font-size: 16px;
+	z-index: 4;
+}
+
+.userprofile {
+	display: flex;
+	padding-left: 15px;
+	padding-right: 17.5px;
+	flex-direction: row;
+	width: 230px;
+	grid-gap: 5px;
+	background-color: black;
+	position: fixed;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	bottom: 70px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border-radius: 10px;
+	z-index: 4;
+	color: white;
+}
+
+.userprofile .userdata {
+	color: white;
+}
+
+.userprofile_second_block {
+	display: flex;
+	align-items: center;
+	padding-left: 82.5px;
+}
+
+.players_profile_second_block {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	bottom: -12.5px;
+	right: -20px;
+	z-index: 4;
+
+}
+
+.userprofile_first_block,
+.userprofile_third_block {
+	flex: 0 1 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	grid-gap: 5px;
+}
+
+.userprofile_third_block {
+	align-items: flex-end;
+}
+
+.desk_table {
+	padding-top: 25px;
+	width: 70%;
+}
+
+.fold_block {
+	border: 2.5px solid red;
+	background-color: rgb(47, 46, 46);
+}
+
+.player_card_block .card_image {
+	margin: 0px;
+}
+
+.player_card_block .first_card {
+	z-index: 2;
+	margin-right: -70px;
+}
+
+.player_card_block {
+	position: absolute;
+	left: 50%;
+	margin-top: -90px;
+	transform: translate(-50%, 0);
+	opacity: 1 !important;
+}
+
+
+/*---------------------TIMER USER---------------------*/
+
+.timer_user {
+	position: fixed;
+	left: calc(50% - 175px);
+	transform: translate(-50%, 0);
+	bottom: 85px;
+}
+
+.timer_user>svg {
+	width: 80px;
+	height: 80px;
+}
+
+.timer_user>svg>circle {
+	fill: none;
+	stroke-opacity: 0.3;
+	stroke: #0d6efd;
+	stroke-width: 5;
+	transform-origin: center center;
+	transform: rotate(-90deg);
+}
+
+.timer_user>svg>circle+circle {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	stroke-linecap: round;
+	stroke-opacity: 1;
+}
+
+.timer_user.animatable>svg>circle+circle {
+	transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer_user>svg>text {
+	font-size: 20px;
+}
+
+/*---------------------TIMER PROFILE---------------------*/
+
+.timer_profile {
+	position: absolute;
+	left: -55px;
+	bottom: 8.5px;
+}
+
+.timer_profile>svg {
+	width: 50px;
+	height: 50px;
+}
+
+.timer_profile>svg>circle {
+	fill: none;
+	stroke-opacity: 0.3;
+	stroke: #0d6efd;
+	stroke-width: 5;
+	transform-origin: center center;
+	transform: rotate(-90deg);
+}
+
+.timer_profile>svg>circle+circle {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	stroke-linecap: round;
+	stroke-opacity: 1;
+}
+
+.timer_profile.animatable>svg>circle+circle {
+	transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer_profile>svg>text {
+	font-size: 16px;
+
+}
