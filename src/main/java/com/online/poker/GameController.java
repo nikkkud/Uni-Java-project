@@ -68,14 +68,15 @@ public class GameController {
     public String table(Principal principal) {
         String name = principal.getName();
 
+        return "table";
 
-        if (accessService.check_onhall(name)  == -1 &&
-            accessService.check_ontable(name) == -1) 
-        {
-            return "table";
-        }else {
-            return "redirect:error";
-        }
+        // if (accessService.check_onhall(name)  == -1 &&
+        //     accessService.check_ontable(name) == -1) 
+        // {
+        //     return "table";
+        // }else {
+        //     return "redirect:error";
+        // }
     }
 
     //WebSockets links
@@ -104,7 +105,7 @@ public class GameController {
     public User getUserInfo(Principal principal) {
         //Get player info
         String name = principal.getName();
-
+        
         // OutputUserInfo output = new OutputUserInfo();
         // output.Player = accessService.find_by_name(name);
 

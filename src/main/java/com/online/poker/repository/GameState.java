@@ -3,11 +3,13 @@ import java.util.ArrayList;
 
 
 public class GameState {
+	
 
 	// місце у всіх списках
 	public int StepId;
 
 	private ArrayList<ArrayList<Card>> PlayersCards = new ArrayList<ArrayList<Card>>();
+	public ArrayList<ArrayList<Card>> OpenCards = new ArrayList<ArrayList<Card>>();
 	
 	//у кого f того ти ігнориш він просто весить 
 	//до кінця гри щоб гравці побачили які в нього карти були 
@@ -34,6 +36,7 @@ public class GameState {
 	public ArrayList<User> PlayersOnHall = new ArrayList<User>();
 	public int DilerId;
 	public int CircleSize = 0;
+	public boolean GameOver = true;
 
 
 
@@ -46,12 +49,12 @@ public class GameState {
         this.PlayersCards = PlayersCards;
     }
 
-    public ArrayList<Card> getCardsOnTable(){
-        return CardsOnTable;
-    }
+    // public ArrayList<Card> getCardsOnTable(){
+    //     return CardsOnTable;
+    // }
 
-    public void setCardsOnTable(ArrayList<Card> cardsOnTable){
-        this.CardsOnTable = cardsOnTable;
-    }
+    // public void setCardsOnTable(ArrayList<Card> cardsOnTable){
+    //     this.CardsOnTable = cardsOnTable;
+    // }
 
 }
