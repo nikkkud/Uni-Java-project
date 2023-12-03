@@ -1,0 +1,37 @@
+        ~ Game in poker online ~
+            [Team]
+Іван Пивоваров - backend
+Нікіта Кудін - frontend
+Назаревcький Гліб - business logic
+Марія Пшенікова - business logic
+
+            [Sources for backend]
+Official doc:
+    https://docs.spring.io/spring-framework/reference/index.html
+
+YouTube guid:
+    https://youtu.be/7T-HnTE6v64?si=LoK8-TbyV8MgdITz
+    https://youtu.be/TywlS9iAZCM?si=0UXQidcZKICObwsE
+
+Principal:
+    https://www.springcloud.io/post/2022-02/spring-security-get-current-user/#gsc.tab=0
+
+Just @SendToUser:
+    https://docs.spring.io/spring-framework/reference/web/websocket/stomp/user-destination.html#page-title
+    Just add in js /user + /queue/get_user_interface = /user/queue/get_user_interface
+    https://for-each.dev/lessons/b/-spring-websockets-sendtouser
+    Как мы видим, @SendToUser указывает на « queue/errors », 
+    но сообщение будет отправлено на « /user/queue/errors ».
+
+SessionDisconnectEvent
+    https://docs.spring.io/spring-framework/reference/web/websocket/stomp/application-context-events.html
+    https://docs.spring.io/spring-framework/reference/core/beans/context-introduction.html#context-functionality-events-annotation
+    https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/socket/messaging/AbstractSubProtocolEvent.html#getUser()  
+
+SimpMessagingTemplate - After SessionDisconnectEvent:
+    https://docs.spring.io/spring-framework/reference/web/websocket/stomp/handle-send.html#page-title
+                        
+                
+            [Rules]
+https://youtu.be/W7oMSN7WGOo?si=DHe9WqDlvte1dFxQ
+

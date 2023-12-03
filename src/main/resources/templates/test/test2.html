@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #listsContainer {
+      display: flex;
+      align-items: center;
+      background-color: #e0e0e0;
+      box-sizing: border-box;
+      /* position: fixed; */
+      top: 0;
+      width: 100%;
+      overflow-x: auto; /* Полоса прокрутки по горизонтали при необходимости */
+    }
+
+    #firstList {
+      min-width: 60%; /* Минимальная ширина первого списка (относительно ширины страницы) */
+    }
+
+    #divider {
+      height: 50px; /* Высота вашего разделителя */
+      width: 10px;
+      background-color: black;
+      /* border-left: 1px solid #ccc; Цвет и стиль разделителя */
+    }
+
+    #secondList {
+      min-width: 30%; /* Минимальная ширина второго списка (относительно ширины страницы) */
+    }
+
+    #bottomList {
+      background-color: #f0f0f0;
+      width: 100%;
+
+      padding-bottom: 50px;
+      padding-top: 50px;
+
+
+      position: fixed;
+      bottom: 0;
+      overflow-x: auto; /* Полоса прокрутки по горизонтали при необходимости */
+
+      display: flex;
+      justify-content: center;
+    }
+    ul {
+      display: flex;
+    }
+    li {
+      position: center;
+      margin-right: 10px;
+      margin-left: 10px;
+      border: 2px solid blue;
+    }
+    p {
+      margin: 2px;
+	  left:0;
+    }
+    h3 {
+      font-size: 20px;
+      margin:0;
+      margin-right: 10px;
+    }
+    #move {
+      width: 5%;
+      height: 30px;
+      margin: 0px;
+      padding: 0px;
+    }
+    input {
+      font-size: 20px;
+    }
+    #grop {
+      justify-content: center;
+      position: center;
+      display: flex;
+    }
+    #table {
+      width:100%;
+      align-items: center;
+      text-align: center;
+    }
+    h1 {
+      margin: 30px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 20px;
+      padding-right:20px;
+      background-color: rgb(248, 246, 147);
+    }
+  </style>
+  <title>Three Lists Example</title>
+</head>
+<body>
+
+<div id="listsContainer">
+  <ul id="firstList">
+    <h3>On table:</h3>
+    <li>
+      <div id = "grop">
+        <p>Nickname</p>
+        <p>100$</p>
+      </div>
+      <div id = "grop">
+        <p>(D)</p>
+        <p></p>
+        <p>20$</p>
+      </div>
+    </li>
+    <li>
+      <div id = "grop">
+        <p>Nickname</p>
+        <p>100$</p>
+      </div>
+      <div id = "grop">
+        <p></p>
+        <p></p>
+        <p>20$</p>
+      </div>
+    </li>
+    <li>
+      <div id = "grop">
+        <p>Nickname</p>
+        <p>100$</p>
+      </div>
+      <div id = "grop">
+        <p></p>
+        <p>(H)</p>
+        <p>20$</p>
+      </div>
+    </li>
+    <li>
+    <div id = "grop">
+        <p>Nickname</p>
+        <p>100$</p>
+      </div>
+      <div id = "grop">
+        <p>{ K♥ : 10♦ }</p>
+      </div>
+    </li>
+  </ul>
+
+
+
+  <div id="divider"></div>
+  <ul id="secondList">
+    <h3>On hall:</h3>
+    <li>
+      <div id = "grop">
+        <p>Nickname</p>
+        <p>100$</p>
+      </div>
+    </li>
+    <li>
+      <div id = "grop">
+        <p>Nickname</p>
+        <p>100$</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+<div id = "table">
+  <h1>Bank = 1000$</h1>
+  <div id="grop">
+    <h1>5♠</h1>
+    <h1>K♥</h1>
+    <h1>10♦</h1>
+    <h1>Q♣</h1>
+    <h1>A♣</h1>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div id="bottomList">
+  <h3>Nickname 1000$</h3>
+  <h3>Your hand: 9♣ D♣</h3>
+  <form>
+    <input type="submit" value="Fold">
+  </form>
+  <form>
+      <input type="submit" value="Check">
+  </form>
+  <form>
+      <input type="submit" value="Bet 10$">
+  </form>
+  <form>
+      <input type="submit" value="Call">
+  </form>
+  <form>
+      <input type="submit" value="Raise">
+  </form>
+  <div id="move"></div>
+</div>
+
+</body>
+</html>
