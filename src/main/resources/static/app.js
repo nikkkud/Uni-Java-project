@@ -12,8 +12,8 @@ stompClient.onConnect = (frame) => {
         showUserInterface(JSON.parse(greeting2.body));
     });
 
-    getInfo();
-    sendName();
+    // getInfo();
+    sendStep(1);
 };
 
 stompClient.onWebSocketError = (error) => {
@@ -31,12 +31,32 @@ function connect() {
     stompClient.activate();
 }
 
-function sendName() {
-    stompClient.publish({
-        destination: "/app/hello",
-        body: JSON.stringify({'name': "test sending messege123"})
-    });
+function sendStep(test) {
 
+    if (test == 1) {
+        stompClient.publish({
+            destination: "/app/hello",
+            body: JSON.stringify({'Act': "bet", 'Bet': 100})
+        });
+    }
+    if (test == 2) {
+        stompClient.publish({
+            destination: "/app/hello",
+            body: JSON.stringify({'Act': "call", 'Bet': 0})
+        });
+    }
+    if (test == 3){
+        stompClient.publish({
+            destination: "/app/hello",
+            body: JSON.stringify({'Act': "check",'Bet': 0})
+        });
+    }
+    if (test == 4){
+        stompClient.publish({
+            destination: "/app/hello",
+            body: JSON.stringify({'Act': "start",'Bet': 0})
+        });
+    }
 }
 function getInfo() {
     stompClient.publish({
@@ -57,20 +77,37 @@ function showGreeting(message) {
     $("#userinterface").empty();
 
     for (let i = 0; i < message.PlayersOnTable.length; i++) {
-        $("#ontable").append(
-            '<li><div id = "grop"><p>' + 
-            message.PlayersOnTable[i].Name +
-            message.PlayersOnTable[i].Balance +
-            '</p></div">'
-            
-            // + '<div id = "grop"><p>dg' + message.Bank + '</p></div"></li>'
-        );
+        if (message.StepId == i) {
+            $("#ontable").append(
+                '<li><div id = "grop"><p>' + 
+                message.PlayersOnTable[i].name +
+                message.PlayersOnTable[i].balance +
+                "(bet:" +
+                message.PlayersBet[i] + ")" +
+                '(S)' +
+                '</p></div">'
+                
+                // + '<div id = "grop"><p>dg' + message.Bank + '</p></div"></li>'
+            );
+        }else {
+            $("#ontable").append(
+                '<li><div id = "grop"><p>' + 
+                message.PlayersOnTable[i].name +
+                message.PlayersOnTable[i].balance +
+                "(bet:" +
+                message.PlayersBet[i] + ")" +
+                '</p></div">'
+                
+                // + '<div id = "grop"><p>dg' + message.Bank + '</p></div"></li>'
+            );   
+        }
+
     }
     for (let i = 0; i < message.PlayersOnHall.length; i++) {
         $("#onhall").append(
             '<li><div id = "grop"><p>' + 
-            message.PlayersOnHall[i].Name +
-            message.PlayersOnHall[i].Balance +
+            message.PlayersOnHall[i].name +
+            message.PlayersOnHall[i].balance +
             '</p></div">'
             
         ); 
@@ -83,7 +120,7 @@ function showGreeting(message) {
     );
     for (let i = 0; i < message.CardsOnTable.length; i++) {
         $("#grop2").append(
-            "<h1>" + message.CardsOnTable.Number + message.CardsOnTable.Suit + "</h1>"
+            "<h1>" + message.CardsOnTable[i].Number + message.CardsOnTable[i].Suit + "</h1>"
         );  
     }
 
@@ -94,12 +131,26 @@ function showUserInterface(message) {
     $("#userinterface").empty();
 
     $("#userinterface").append(
-        "<h3>" + message.Name + message.Balance +"</h3>"
+        "<h3>" + message.name + message.balance +"</h3>"
     );
     $("#userinterface").append(
-        '<input id = "send" type="submit" value="Raise"></form>'
+        '<input id = "bet" type="submit" value="bet"></form>'
     );
-    $( "#send" ).click(() => getInfo());
+    $("#userinterface").append(
+        '<input id = "call" type="submit" value="call"></form>'
+    );
+    $("#userinterface").append(
+        '<input id = "check" type="submit" value="check"></form>'
+    );
+    $("#userinterface").append(
+        '<input id = "start" type="submit" value="Start"></form>'
+    );
+    
+    $( "#bet" ).click(() => sendStep(1));
+    $( "#call" ).click(() => sendStep(2));
+    $( "#check" ).click(() => sendStep(3));
+    $( "#start" ).click(() => sendStep(4));
+
 } 
 
 $(function () {

@@ -7,5 +7,14 @@ public class Card {
     public int Number;
     // (H D C S) (Hearts Diamonds Clubs Spades)
     public char Suit;
+
+    public Card() {
+
+    }
+    
+    public Card(int number, char suit) {
+        this.Number = number;
+        this.Suit = suit;
+    }
    
 }

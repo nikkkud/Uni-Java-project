@@ -2,19 +2,19 @@ package com.online.poker.repository;
 
 public class PlayerInput {
     
-    public String act;
-    public String bet;
+    public String Act;
+    public int Bet;
 
     public PlayerInput() {
 
     }
 
     public PlayerInput(String act) {
-        this.act = act;
+        this.Act = act;
     }
 
-    public PlayerInput(String act, String bet) {
-        this.act = act;
-        this.bet = bet;
+    public PlayerInput(String act, int bet) {
+        this.Act = act;
+        this.Bet = bet;
     }
 }
